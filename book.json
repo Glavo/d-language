@@ -7,10 +7,6 @@
                     "lang": "d",
                     "name": "Dlang",
                     "default": true
-                },
-                {
-                    "lang": "go",
-                    "name": "Go"
                 }
             ]
         }
