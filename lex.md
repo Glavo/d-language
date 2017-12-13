@@ -203,3 +203,26 @@ Token:
     =>
     #
 ```
+
+## 2.8 标识符
+
+```pegs
+Identifier:
+    IdentifierStart
+    IdentifierStart IdentifierChars
+
+IdentifierChars:
+    IdentifierChar
+    IdentifierChar IdentifierChars
+
+IdentifierStart:
+    _
+    Letter
+    UniversalAlpha
+
+IdentifierChar:
+    IdentifierStart
+    0
+    NonZeroDigit
+```
+
