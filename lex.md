@@ -15,15 +15,21 @@
 
 2. UTF-8 是传统 7-bit ASCII 的超集。以下 UTF BOM （字节序标记）可以出现在源文本的开头部分：
 
-> |UTF 字节序标记 |
-  | --- | --- |
-  | 格式 | BOM |
-  | UTF-8 | EF BB BF |
-  | UTF-16BE | FE FF |
-  | UTF-16LE | FF FE |
-  | UTF-32BE | 00 00 FE FF |
-  | UTF-32LE | FF FE 00 00 |
-  | ASCII | no BOM |
+  <table>
+    <caption>UTF Byte Order Marks</caption>    
+    <tbody>
+      <tr>
+        <th><b>Format</b></th>
+        <th><b>BOM</b></th>
+      </tr>
+	    <tr><td>UTF-8</td>    <td>EF BB BF</td></tr>
+	    <tr><td>UTF-16BE</td> <td>FE FF</td></tr>
+	    <tr><td>UTF-16LE</td> <td>FF FE</td></tr>
+      <tr><td>UTF-32BE</td> <td>00 00 FE FF</td></tr>
+	    <tr><td>UTF-32LE</td> <td>FF FE 00 00</td></tr>
+	    <tr><td>ASCII</td>    <td>no BOM</td></tr>
+    </tbody>
+  </table>
 
 3. 如果源文件不是以 BOM 开头，那么第一个字符必须小于等于 U+0000007F。
 
