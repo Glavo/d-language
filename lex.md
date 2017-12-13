@@ -20,4 +20,17 @@
     |---------|-------------|
     |UTF-8    |EF BB BF     |
 
-
+<table>
+    <thead>
+        <tr>
+            <th>格式</th>
+            <th>BOM</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>UTF-8</td>
+            <td>EF BB BF</td>
+        </tr>
+    </tbody>
+</table>
