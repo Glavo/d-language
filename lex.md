@@ -4,3 +4,11 @@
 
 ## 2.1 源文本
 
+D 源文本可以使用下面的几种编码之一：
+
+* ASCII
+* UTF-8
+* UTF-16BE
+* UTF-16LE
+* UTF-32BE
+* UTF-32LE
