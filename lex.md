@@ -86,30 +86,35 @@ Space:
 
 ## 2.6 注释
 
-```pegs
-Comment:
-    BlockComment
-    LineComment
-    NestingBlockComment
 
-BlockComment:
-    /* Characters */
+    Comment:
+        BlockComment
+        LineComment
+        NestingBlockComment
 
-LineComment:
-    // Characters EndOfLine
+    BlockComment:
+        /* Characters */
 
-NestingBlockComment:
-    /+ NestingBlockCommentCharacters +/
+    LineComment:
+        // Characters EndOfLine
 
-NestingBlockCommentCharacters:
-    NestingBlockCommentCharacter
-    NestingBlockCommentCharacter NestingBlockCommentCharacters
+    NestingBlockComment:
+        /+ NestingBlockCommentCharacters +/
 
-NestingBlockCommentCharacter:
-    Character
-    NestingBlockComment
+    NestingBlockCommentCharacters:
+        NestingBlockCommentCharacter
+        NestingBlockCommentCharacter NestingBlockCommentCharacters
 
-Characters:
-    Character
-    Character Characters
+    NestingBlockCommentCharacter:
+        Character
+        NestingBlockComment
+
+    Characters:
+        Character
+        Character Characters
 ```
+
+1. D 支持三种注释：
+    1. 可以跨越多行，但是不能嵌套的块注释。
+    2. 在行尾结束的单行注释。
+    3. 可跨越多行并且
