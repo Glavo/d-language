@@ -501,72 +501,72 @@ TokenString:
         <th><b>含义</b></th>
     </tr>
     <tr>
-      <td>\'</td>
+      <td><b>\'</b></td>
       <td>单引号字面量：'</td>
     </tr>
     <tr>
-      <td>\"</td>
+      <td><b>\"</b></td>
       <td>双引号字面量："</td>
     </tr>
     <tr>
-      <td>\\\\</td>
+      <td><b>\?</b></td>
+      <td>问号字面量：?</td>
+    </tr>
+    <tr>
+      <td><b>\\</b></td>
       <td>反斜线字面量：\</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td><b>\0</b></td>
+      <td>二进制 0（NUL， U+0000）</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td><b>\a</b></td>
+      <td>BEL（警报）字符（U+0007）</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td>\b</b></td>
+      <td>退格（U+0008）</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td><b>\f</b></td>
+      <td>换页（FF）（U+000C）</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td><b>\n</b></td>
+      <td>换行（U+000A）</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td><b>\r</b></td>
+      <td>回车（U+000D）</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td><b>\t</b></td>
+      <td>水平制表（U+0009）</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td><b>\v</b></td>
+      <td>垂直制表（U+000B）</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td><b>\x</b>nn</td>
+      <td>以十六进制表示的字节值，其中 nn 被指定为两个十六进制数字。<br>例如：<b>\xFF</b> 表示值为 255 的字符。</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td>\n<br>\nn<br>\nnn</td>
+      <td>以八进制表示的字节值。<br>例如：<b>\101</b> 表示值为 65 的字符（‘A’）。类似于十六进制字符，其最大的字节值为 <b>\377</b>（= <b>\xFF</b> 或 255）</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td><b>\u</b>nnnn</td>
+      <td>Unicode 字符 U+nnnn，其中 nnnn 是四个十六进制数字。<br>例如：<b>\u042F</b> 表示 Unicode 字符 Я（U+42F）。</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td><b>\U</b>nnnnnnnn</td>
+      <td>Unicode 字符 U+nnnnnnnn，其中 nnnnnnnn 是八个十六进制数字<br>例如：<b>\U0001F603</b> 表示 Unicode 字符 U+1F603。</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
+      <td>\名称</td>
+      <td>HTML5 规范中的命名字符实体。相信信息参阅 NamedCharacterEntity。</td>
     </tr>
   </tbody>
 </table>
