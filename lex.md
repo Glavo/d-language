@@ -1110,6 +1110,26 @@ Symbols:
     </tr>
     <tr>
       <td>__DATE__</td>
-      <td>字符串表示的编译时日期 "mmm dd yyyy"</td>
+      <td>用字符串字面量表示的编译时日期 "mmm dd yyyy"</td>
+    </tr>
+    <tr>
+      <td>__EOF__</td>
+      <td>将词法分析器状态设置为扫描结束此文件</td>
+    </tr>
+    <tr>
+      <td>__TIME__</td>
+      <td>用字符串字面量表示的编译时的时间 "hh:mm:ss"</td>
+    </tr>
+    <tr>
+      <td>__TIMESTAMP__</td>
+      <td>用字符串字面量表示的编译时的日期与时间 "www mmm dd hh:mm:ss yyyy"</td>
+    </tr>
+    <tr>
+      <td>__VENDOR__</td>
+      <td>编译器供应商的字符串表示，例如 "Digital Mars D"</td>
+    </tr>
+    <tr>
+      <td>__VERSION__</td>
+      <td>编译器版本的整数表示，例如 2001</td>
     </tr>
   </table>
