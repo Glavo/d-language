@@ -310,3 +310,5 @@ DelimitedString:
 TokenString:
     q{ Tokens }
 ```
+
+1. 一个字符串字面量可以是
