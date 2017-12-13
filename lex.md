@@ -227,3 +227,86 @@ IdentifierChar:
 ```
 
 1. 标识符以一个字符、`_`或者通用字母后接任意个字母、`_`数字或者通用字母组成。通用字母定义于 ISO/IEC 9899:1999(E) 的附录 D中。标识符长度没有限制，并区分大小写。以 `__` （两个下划线）开头的标识符被保留。
+
+## 2.9 字符串字面量
+
+```pegs
+StringLiteral:
+    WysiwygString
+    AlternateWysiwygString
+    DoubleQuotedString
+
+    HexString
+    DelimitedString
+    TokenString
+
+WysiwygString:
+    r" WysiwygCharacters " StringPostfixopt
+
+AlternateWysiwygString:
+    ` WysiwygCharacters ` StringPostfixopt
+
+WysiwygCharacters:
+    WysiwygCharacter
+    WysiwygCharacter WysiwygCharacters
+
+WysiwygCharacter:
+    Character
+    EndOfLine
+
+DoubleQuotedString:
+    " DoubleQuotedCharacters " StringPostfixopt
+
+DoubleQuotedCharacters:
+    DoubleQuotedCharacter
+    DoubleQuotedCharacter DoubleQuotedCharacters
+
+DoubleQuotedCharacter:
+    Character
+    EscapeSequence
+    EndOfLine
+
+EscapeSequence:
+    \'
+    \"
+    \?
+    \\
+    \0
+    \a
+    \b
+    \f
+    \n
+    \r
+    \t
+    \v
+    \x HexDigit HexDigit
+    \ OctalDigit
+    \ OctalDigit OctalDigit
+    \ OctalDigit OctalDigit OctalDigit
+    \u HexDigit HexDigit HexDigit HexDigit
+    \U HexDigit HexDigit HexDigit HexDigit HexDigit HexDigit HexDigit HexDigit
+    \ NamedCharacterEntity
+
+HexString:
+    x" HexStringChars " StringPostfixopt
+
+HexStringChars:
+    HexStringChar
+    HexStringChar HexStringChars
+
+HexStringChar:
+    HexDigit
+    WhiteSpace
+    EndOfLine
+
+StringPostfix:
+    c
+    w
+    d
+
+DelimitedString:
+    q" Delimiter WysiwygCharacters MatchingDelimiter "
+
+TokenString:
+    q{ Tokens }
+```
