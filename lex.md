@@ -757,68 +757,68 @@ HexLetter:
       <td>long</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
+      <td><b>显式后缀</b></td>
       <td></td>
     </tr>
     <tr>
-      <td></td>
+      <td>0L .. 9_223_372_036_854_775_807L</td>
+      <td>long</td>
+    </tr>
+    <tr>
+      <td>0U .. 4_294_967_295U</td>
+      <td>uint</td>
+    </tr>
+    <tr>
+      <td>4_294_967_296U .. 18_446_744_073_709_551_615U</td>
+      <td>ulong</td>
+    </tr>
+    <tr>
+      <td>0UL .. 18_446_744_073_709_551_615UL</td>
+      <td>ulong</td>
+    </tr>
+    <tr>
+      <td><b>十六进制字面量</b></td>
       <td></td>
     </tr>
     <tr>
-      <td></td>
+      <td>0x0 .. 0x7FFF_FFFF</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>0x8000_0000 .. 0xFFFF_FFFF</td>
+      <td>uint</td>
+    </tr>
+    <tr>
+      <td>0x1_0000_0000 .. 0x7FFF_FFFF_FFFF_FFFF</td>
+      <td>long</td>
+    </tr>
+    <tr>
+      <td>0x8000_0000_0000_0000 .. 0xFFFF_FFFF_FFFF_FFFF</td>
+      <td>ulong</td>
+    </tr>
+    <tr>
+      <td><b>带显式后缀的十六进制字面量</b></td>
       <td></td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td>0x0L .. 0x7FFF_FFFF_FFFF_FFFFL</td>
+      <td>long</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td>0x8000_0000_0000_0000L .. 0xFFFF_FFFF_FFFF_FFFFL</td>
+      <td>ulong</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td>0x0U .. 0xFFFF_FFFFU</td>
+      <td>uint</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td>0x1_0000_0000U .. 0xFFFF_FFFF_FFFF_FFFFU</td>
+      <td>ulong</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
+      <td>0x0UL .. 0xFFFF_FFFF_FFFF_FFFFUL</td>
+      <td>ulong</td>
     </tr>
     </tbody>
   <table>
