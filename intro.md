@@ -17,4 +17,4 @@
     
     3. **词法分析**
     
-    将源文件分割为标记序列
+    将源文件分割为标记序列。[特殊标记](https://dlang.org/spec/lex.html#specialtokens)会被替换为
