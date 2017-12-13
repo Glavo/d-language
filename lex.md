@@ -585,3 +585,240 @@ SingleQuotedCharacter:
 1. 字符字面量是由单引号 `'` 括起来的单个字符或者转义序列。
 
 ## 2.11 整数字面量
+
+```pegs
+IntegerLiteral:
+    Integer
+    Integer IntegerSuffix
+
+Integer:
+    DecimalInteger
+    BinaryInteger
+    HexadecimalInteger
+
+IntegerSuffix:
+    L
+    u
+    U
+    Lu
+    LU
+    uL
+    UL
+
+DecimalInteger:
+    0
+    NonZeroDigit
+    NonZeroDigit DecimalDigitsUS
+
+BinaryInteger:
+    BinPrefix BinaryDigitsUS
+
+BinPrefix:
+    0b
+    0B
+
+HexadecimalInteger:
+    HexPrefix HexDigitsNoSingleUS
+
+NonZeroDigit:
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+
+DecimalDigits:
+    DecimalDigit
+    DecimalDigit DecimalDigits
+
+DecimalDigitsUS:
+    DecimalDigitUS
+    DecimalDigitUS DecimalDigitsUS
+
+DecimalDigitsNoSingleUS:
+    DecimalDigit
+    DecimalDigit DecimalDigitsUS
+    DecimalDigitsUS DecimalDigit
+
+DecimalDigitsNoStartingUS:
+    DecimalDigit
+    DecimalDigit DecimalDigitsUS
+
+DecimalDigit:
+    0
+    NonZeroDigit
+
+DecimalDigitUS:
+    DecimalDigit
+    _
+
+BinaryDigitsUS:
+    BinaryDigitUS
+    BinaryDigitUS BinaryDigitsUS
+
+BinaryDigit:
+    0
+    1
+
+BinaryDigitUS:
+    BinaryDigit
+    _
+
+OctalDigit:
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+
+HexDigits:
+    HexDigit
+    HexDigit HexDigits
+
+HexDigitsUS:
+    HexDigitUS
+    HexDigitUS HexDigitsUS
+
+HexDigitsNoSingleUS:
+    HexDigit
+    HexDigit HexDigitsUS
+    HexDigitsUS HexDigit
+
+HexDigitsNoStartingUS:
+    HexDigit
+    HexDigit HexDigitsUS
+
+HexDigit:
+    DecimalDigit
+    HexLetter
+
+HexDigitUS:
+    HexDigit
+    _
+
+HexLetter:
+    a
+    b
+    c
+    d
+    e
+    f
+    A
+    B
+    C
+    D
+    E
+    F
+```
+
+1. 整数的值可以用十进制、二进制或者十六进制指定。
+
+2. 十进制整数使一串十进制数字。
+
+3. 二进制整数是以 `0b` 或者 `0B` 开头的二进制数字序列。
+
+4. C 风格的八进制整数字面量被认为太容易与十进制数字混淆，所以只在字符串字面量内得到支持。D 语言通过 [std.conv.octal](https://dlang.org/phobos/std_conv.html#.octal) 模板编译时转换十进制数字到八进制数字，例如 `octal!167`。
+
+5. 十六进制整数是以 `0x` 或者 `0X` 开头的十六进制数字序列。
+
+6. 整数字面量里可以嵌入 `_` 字符，它们会被忽略。嵌入的 `_` 对格式化长字面量很有用，譬如用来做千位分隔符：
+
+  ```d
+  123_456       // 123456
+  1_2_3_4_5_6_  // 123456
+  ```
+7. 整数字面量后可以紧跟一个 `L` 或者 `U`（或 `u`）或者两者介有。注意，`l` 不被支持。
+
+8. 整数类型按照下述规则进行判断：
+
+  <table>
+    <caption>整数字面量类型</caption>
+    <tbody>
+    <tr>
+      <th><b>字面量范围</b></th> <th><b>类型</b></th>
+    <tr>
+    <tr>
+      <td><b>一般十进制字面量</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>0 .. 2_147_483_647</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>2_147_483_648 .. 9_223_372_036_854_775_807</td>
+      <td>long</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  <table>
