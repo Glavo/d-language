@@ -31,4 +31,10 @@
 
 5. 源文本的源表示会被解码为 Unicode [字符](https://dlang.org/spec/lex.html#Character)序列。这些字符又会被进一步划分为：[空白符](https://dlang.org/spec/lex.html#WhiteSpace)、[行终结符](https://dlang.org/spec/lex.html#WhiteSpace)、[注释](https://dlang.org/spec/lex.html#Comment)、[特殊字符序列](https://dlang.org/spec/lex.html#SpecialTokenSequence)、[标记](https://dlang.org/spec/lex.html#Token)以及[文件终结符](https://dlang.org/spec/lex.html#EndOfFile)。
 
-6. 源文本使用贪心算法分割成标记，即词法分析器总是试图分割出最长的标记。例如 `>>` 是一个右移标记，而不是两个大于标记。
+6. 源文本使用贪心算法分割成标记，即词法分析器总是试图分割出最长的标记。例如 `>>` 是一个右移标记，而不是两个大于标记。这个规则有两个例外：
+
+    * 当一个 `..` 嵌入两个类似浮点数字面量的中间时，它会被当做第一个整数后用一个空格分隔解释。
+    
+    * 一个 `1.a` 会被解释为三个符号`1`、`.`和`a`，而 `1. a`会被解释为两个符号 `1.` 和 `a`。
+    
+    
