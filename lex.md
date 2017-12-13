@@ -39,14 +39,14 @@
 
 ## 2.2 字符集
 
-```ebnf
+```pegs
 Character:
     任何 Unicode 字符
 ```
 
 ## 2.3 文件终止符
 
-```ebnf
+```pegs
 EndOfFile:
     物理文件的结尾
     \u0000
@@ -57,7 +57,7 @@ EndOfFile:
 
 ## 2.4 行结束符
 
-```ebnf
+```pegs
 EndOfLine:
     \u000D
     \u000A
@@ -66,4 +66,20 @@ EndOfLine:
     \u2029
     EndOfFile
 
+```
+
+1. 不支持通过反斜线拼接行，每行也没有字符数限制。
+
+## 2.5 空白符
+
+```pegs
+WhiteSpace:
+    Space
+    Space WhiteSpace
+
+Space:
+    \u0020
+    \u0009
+    \u000B
+    \u000C
 ```
