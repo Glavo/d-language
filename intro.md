@@ -17,6 +17,6 @@
     
     3. **词法分析**
     
-    将源文件分割为标记序列。[特殊标记](https://dlang.org/spec/lex.html#specialtokens)会被替换为其他的标记；特殊标记序列会被处理后移除。
+    将源文件分割为标记（Token）序列。[特殊标记](https://dlang.org/spec/lex.html#specialtokens)会被替换为其他的标记；特殊标记序列会被处理后移除。
     
     4. **语法分析**
