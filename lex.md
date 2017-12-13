@@ -83,3 +83,33 @@ Space:
     \u000B
     \u000C
 ```
+
+## 2.6 注释
+
+```pegs
+Comment:
+    BlockComment
+    LineComment
+    NestingBlockComment
+
+BlockComment:
+    /* Characters */
+
+LineComment:
+    // Characters EndOfLine
+
+NestingBlockComment:
+    /+ NestingBlockCommentCharacters +/
+
+NestingBlockCommentCharacters:
+    NestingBlockCommentCharacter
+    NestingBlockCommentCharacter NestingBlockCommentCharacters
+
+NestingBlockCommentCharacter:
+    Character
+    NestingBlockComment
+
+Characters:
+    Character
+    Character Characters
+```
