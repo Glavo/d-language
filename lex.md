@@ -4,11 +4,20 @@
 
 ## 2.1 源文本
 
-D 源文本可以使用下面的几种编码之一：
+1. D 源文本可以使用下面的几种编码之一：
 
-* ASCII
-* UTF-8
-* UTF-16BE
-* UTF-16LE
-* UTF-32BE
-* UTF-32LE
+    * ASCII
+    * UTF-8
+    * UTF-16BE
+    * UTF-16LE
+    * UTF-32BE
+    * UTF-32LE    
+
+2. UTF-8 是传统 7-bit ASCII 的超集。以下 UTF BOM （字节序标记）可以出现在源文本的开头部分：
+
+    
+    |格式      |BOM          |
+    |---------|-------------|
+    |UTF-8    |EF BB BF     |
+
+
