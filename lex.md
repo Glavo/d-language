@@ -941,3 +941,145 @@ LeadingDecimal:
   ```d
   4.5 + 6.2i  // complex number (phased out)
   ```
+
+## 2.13 关键字
+
+关键字是被保留的标识符。
+
+参见：全局定义的符号。
+
+```pegs
+Keyword:
+    abstract
+    alias
+    align
+    asm
+    assert
+    auto
+
+    body
+    bool
+    break
+    byte
+
+    case
+    cast
+    catch
+    cdouble
+    cent
+    cfloat
+    char
+    class
+    const
+    continue
+    creal
+
+    dchar
+    debug
+    default
+    delegate
+    delete (deprecated)
+    deprecated
+    do
+    double
+
+    else
+    enum
+    export
+    extern
+
+    false
+    final
+    finally
+    float
+    for
+    foreach
+    foreach_reverse
+    function
+
+    goto
+
+    idouble
+    if
+    ifloat
+    immutable
+    import
+    in
+    inout
+    int
+    interface
+    invariant
+    ireal
+    is
+
+    lazy
+    long
+
+    macro (unused)
+    mixin
+    module
+
+    new
+    nothrow
+    null
+
+    out
+    override
+
+    package
+    pragma
+    private
+    protected
+    public
+    pure
+
+    real
+    ref
+    return
+
+    scope
+    shared
+    short
+    static
+    struct
+    super
+    switch
+    synchronized
+
+    template
+    this
+    throw
+    true
+    try
+    typedef (deprecated)
+    typeid
+    typeof
+
+    ubyte
+    ucent
+    uint
+    ulong
+    union
+    unittest
+    ushort
+
+    version
+    void
+    volatile (deprecated)
+
+    wchar
+    while
+    with
+
+    __FILE__
+    __FILE_FULL_PATH__
+    __MODULE__
+    __LINE__
+    __FUNCTION__
+    __PRETTY_FUNCTION__
+
+    __gshared
+    __traits
+    __vector
+    __parameters
+```
