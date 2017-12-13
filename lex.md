@@ -58,5 +58,12 @@ EndOfFile:
 ## 2.4 行结束符
 
 ```ebnf
+EndOfLine:
+    \u000D
+    \u000A
+    \u000D \u000A
+    \u2028
+    \u2029
+    EndOfFile
 
 ```
