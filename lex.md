@@ -16,21 +16,13 @@
 2. UTF-8 是传统 7-bit ASCII 的超集。以下 UTF BOM （字节序标记）可以出现在源文本的开头部分：
 
     
-    |格式      |BOM          |
-    |---------|-------------|
-    |UTF-8    |EF BB BF     |
-
 <table>
-    <thead>
-        <tr>
-            <th>格式</th>
-            <th>BOM</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>UTF-8</td>
-            <td>EF BB BF</td>
-        </tr>
-    </tbody>
-</table>
+    <tfoot>UTF Byte Order Marks</tfoot>
+    <tbody><tr><th class="donthyphenate"><b>Format</b></th><th class="donthyphenate"><b>BOM</b></th></tr>
+	<tr><td>UTF-8</td><td>EF BB BF</td></tr>
+	<tr><td>UTF-16BE</td><td>FE FF</td></tr>
+	<tr><td>UTF-16LE</td><td>FF FE</td></tr>
+    <tr><td>UTF-32BE</td><td>00 00 FE FF</td></tr>
+	<tr><td>UTF-32LE</td><td>FF FE 00 00</td></tr>
+	<tr><td>ASCII</td><td>no BOM</td></tr>
+</tbody></table>
