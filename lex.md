@@ -15,12 +15,14 @@
 
 2. UTF-8 是传统 7-bit ASCII 的超集。以下 UTF BOM （字节序标记）可以出现在源文本的开头部分：
 
-UTF 字节序标记|
----------|-------
-格式      | BOM
-UTF-8    | EF BB BF
-UTF-16BE | FE FF
-UTF-16LE | FF FE
-UTF-32BE | 00 00 FE FF
-UTF-32LE | FF FE 00 00
-ASCII    | no BOM
+    UTF 字节序标记|
+    ---------|-------
+    格式      | BOM
+    UTF-8    | EF BB BF
+    UTF-16BE | FE FF
+    UTF-16LE | FF FE
+    UTF-32BE | 00 00 FE FF
+    UTF-32LE | FF FE 00 00
+    ASCII    | no BOM
+
+3. 
