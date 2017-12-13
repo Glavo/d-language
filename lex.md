@@ -1110,6 +1110,6 @@ Symbols:
     </tr>
     <tr>
       <td>__DATE__</td>
-      <td></td>
+      <td>字符串表示的编译时日期 "mmm dd yyyy"</td>
     </tr>
   </table>
