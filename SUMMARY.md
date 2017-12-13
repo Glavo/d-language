@@ -3,6 +3,5 @@
 ## Overview
 
 * [D 语言参考](README.md)
-
-## Methods
+* [简介](intro.md)
 
