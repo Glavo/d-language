@@ -946,7 +946,7 @@ LeadingDecimal:
 
 关键字是被保留的标识符。
 
-参见：全局定义的符号。
+参见：全局符号。
 
 ```pegs
 Keyword:
@@ -1083,3 +1083,19 @@ Keyword:
     __vector
     __parameters
 ```
+
+# 2.14 全局符号
+
+1. 这些符号是在 object_.d 中定义的，它们被默认自动导入。
+
+```pegs
+Symbols:
+    string (alias to immutable(char)[])
+    wstring (alias to immutable(wchar)[])
+    dstring (alias to immutable(dchar)[])
+
+    size_t
+    ptrdiff_t
+```
+
+#
