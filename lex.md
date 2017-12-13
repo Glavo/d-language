@@ -488,3 +488,85 @@ TokenString:
   q{ __TIME__ }       // " __TIME__ "，它不会被替换为时间
   // q{ __EOF__ }     // 错误， __EOF__ 不是一个标记，而是文件终止符
   ```
+
+### 2.9.6 转义序列
+
+1. 下表解释了 `EscapeSequence` 中所列出的转义序列的含义：
+
+  <table>
+    <caption>转义序列</caption>
+    <tbody>
+      <tr>
+        <th><b>序列</b></th>
+        <th><b>含义</b></th>
+    </tr>
+    <tr>
+      <td>\'</td>
+      <td>单引号字面量：'</td>
+    </tr>
+    <tr>
+      <td>\"</td>
+      <td>双引号字面量："</td>
+    </tr>
+    <tr>
+      <td>\\\\</td>
+      <td>反斜线字面量：\</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
