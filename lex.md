@@ -40,7 +40,7 @@
     
 ## 2.2 字符集
 
-```
+``` text
 Character:
     任何 Unicode 字符
 ```
