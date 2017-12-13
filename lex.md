@@ -1133,3 +1133,29 @@ Symbols:
       <td>编译器版本的整数表示，例如 2001</td>
     </tr>
   </table>
+
+## 2.16 特殊标记序列
+
+```pegs
+SpecialTokenSequence:
+    # line IntegerLiteral EndOfLine
+    # line IntegerLiteral Filespec EndOfLine
+
+Filespec:
+    " Characters "
+```
+
+1. 特殊标记序列又词法分析器处理，可以出现在任何其他标记之间，不影响语法分析。
+
+2. 目前只有一个特殊标记序列：`#line`
+
+3. `#line` 将行号设置为 `IntegerLiteral`，将源文件名设置为 `Filespec`。从源文件下一行开始，错误处理将使用被设置的新行号和源文件名，还会将生成的代码映射回源代码。
+
+4. 例如：
+
+  ```d
+  int #line 6 "foo\bar"
+  x;  // this is now line 6 of file foo\bar
+  ```
+
+5. 请注意，反斜线在 Filespec 里没有特殊处理。
