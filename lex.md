@@ -569,4 +569,4 @@ TokenString:
         <td>HTML5 规范中的命名字符实体。相信信息参阅 NamedCharacterEntity。</td>
       </tr>
       </tbody>
-    </table>
+  </table>
