@@ -757,7 +757,7 @@ HexLetter:
       <td>long</td>
     </tr>
     <tr>
-      <td><b>显式后缀</b></td>
+      <td><b>带显式后缀的十进制字面量</b></td>
       <td></td>
     </tr>
     <tr>
@@ -822,3 +822,80 @@ HexLetter:
     </tr>
     </tbody>
   <table>
+
+## 2.12 浮点字面量
+
+```pegs
+FloatLiteral:
+    Float
+    Float Suffix
+    Integer FloatSuffix
+    Integer ImaginarySuffix
+    Integer FloatSuffix ImaginarySuffix
+    Integer RealSuffix ImaginarySuffix
+
+Float:
+    DecimalFloat
+    HexFloat
+
+DecimalFloat:
+    LeadingDecimal .
+    LeadingDecimal . DecimalDigits
+    DecimalDigits . DecimalDigitsNoStartingUS DecimalExponent
+    . DecimalInteger
+    . DecimalInteger DecimalExponent
+    LeadingDecimal DecimalExponent
+
+DecimalExponent
+    DecimalExponentStart DecimalDigitsNoSingleUS
+
+DecimalExponentStart
+    e
+    E
+    e+
+    E+
+    e-
+    E-
+
+HexFloat:
+    HexPrefix HexDigitsNoSingleUS . HexDigitsNoStartingUS HexExponent
+    HexPrefix . HexDigitsNoStartingUS HexExponent
+    HexPrefix HexDigitsNoSingleUS HexExponent
+
+HexPrefix:
+    0x
+    0X
+
+HexExponent:
+    HexExponentStart DecimalDigitsNoSingleUS
+
+HexExponentStart:
+    p
+    P
+    p+
+    P+
+    p-
+    P-
+
+
+Suffix:
+    FloatSuffix
+    RealSuffix
+    ImaginarySuffix
+    FloatSuffix ImaginarySuffix
+    RealSuffix ImaginarySuffix
+
+FloatSuffix:
+    f
+    F
+
+RealSuffix:
+    L
+
+ImaginarySuffix:
+    i
+
+LeadingDecimal:
+    DecimalInteger
+    0 DecimalDigitsNoSingleUS
+```
