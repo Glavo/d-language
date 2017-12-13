@@ -39,12 +39,19 @@
 
 ## 2.2 字符集
 
-``` ebnf
+```ebnf
 Character:
     任何 Unicode 字符
 ```
 
 ## 2.3 文件结尾
+
+```ebnf
+EndOfFile:
+    物理文件的结尾
+    \u0000
+    \u001A
+```
 
 
 
