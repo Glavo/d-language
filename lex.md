@@ -1098,4 +1098,18 @@ Symbols:
     ptrdiff_t
 ```
 
-#
+# 2.15 特殊标记
+
+1. 根据下表，这些标记会被替换为其他标记：
+
+  <table>
+    <caption>特殊标记</caption>
+    <tr>
+      <th><b>特殊的标记</b></th>
+      <th><b>被替换为</b></th>
+    </tr>
+    <tr>
+      <td>__DATE__</td>
+      <td></td>
+    </tr>
+  </table>
