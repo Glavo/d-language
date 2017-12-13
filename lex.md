@@ -123,5 +123,83 @@ Space:
 
     ```d
     a = /+ // +/ 1;    // parses as if 'a = 1;'
-a = /+ "+/" +/ 1"; // parses as if 'a = " +/ 1";'
-a = /+ /* +/ */ 3; // parses as if 'a = */ 3;'
+    a = /+ "+/" +/ 1"; // parses as if 'a = " +/ 1";'
+    a = /+ /* +/ */ 3; // parses as if 'a = */ 3;'
+    ```
+    
+3. 注释不能够连接两个标记，譬如 `abc/**/def` 是两个标记 `abc` 和 `def`，而不是一个标记 `abcdef`。
+
+## 2.7 标记
+
+```pegs
+Token:
+    Identifier
+    StringLiteral
+    CharacterLiteral
+    IntegerLiteral
+    FloatLiteral
+    Keyword
+    /
+    /=
+    .
+    ..
+    ...
+    &
+    &=
+    &&
+    |
+    |=
+    ||
+    -
+    -=
+    --
+    +
+    +=
+    ++
+    <
+    <=
+    <<
+    <<=
+    <>
+    <>=
+    >
+    >=
+    >>=
+    >>>=
+    >>
+    >>>
+    !
+    !=
+    !<>
+    !<>=
+    !<
+    !<=
+    !>
+    !>=
+    (
+    )
+    [
+    ]
+    {
+    }
+    ?
+    ,
+    ;
+    :
+    $
+    =
+    ==
+    *
+    *=
+    %
+    %=
+    ^
+    ^=
+    ^^
+    ^^=
+    ~
+    ~=
+    @
+    =>
+    #
+```
