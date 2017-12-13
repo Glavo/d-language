@@ -387,8 +387,28 @@ TokenString:
 
 5. 可选的_字符串后缀_为字符串提供了一个特定的类型，此时字符串的类型不需要从上下文推断。当类型不能被明确推断出来时（例如调用基于字符串类型重载的函数），明确标注类型有很大的用处。后缀与字符串类型有这样的对应关系：
 
-字符串字面量后缀 |
---|--------------------|--------
-c | immutable(char)[]  | string
-w | immutable(wchar)[] | wstring
-d | immutable(dchar)[] | dstring
+  <table>
+    <caption>字符串字面量后缀 </caption>
+    <tbody>
+      <tr>
+        <th><b>后缀</b></th>
+        <th><b>类型</b></th>
+        <th><b>别名</b></th>
+      </tr>
+      <tr>
+        <td>c</td>
+        <td>immutable(char)[]</td>
+        <td>string</td>
+      </tr>
+      <tr>
+        <td>w</td>
+        <td>immutable(wchar)[]</td>
+        <td>wstring</td>
+      </tr>
+      <tr>
+        <td>d</td>
+        <td>immutable(dchar)[]</td>
+        <td>dstring</td>
+      </tr>
+    </tbody>
+  </table>
