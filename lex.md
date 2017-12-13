@@ -570,3 +570,18 @@ TokenString:
       </tr>
       </tbody>
   </table>
+
+## 2.10 字符字面量
+
+```pegs
+CharacterLiteral:
+    ' SingleQuotedCharacter '
+
+SingleQuotedCharacter:
+    Character
+    EscapeSequence
+```
+
+1. 字符字面量是由单引号 `'` 括起来的单个字符或者转义序列。
+
+## 2.11 整数字面量
