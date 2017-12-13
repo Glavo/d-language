@@ -21,4 +21,8 @@
     
     4. **语法分析（syntax analysis）**
     
-    标记序列会被解析成语法树。
+    标记序列会被解析成语法树（syntax trees）。
+    
+    5. **语义分析（semantic analysis）**
+    
+    
