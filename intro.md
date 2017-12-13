@@ -15,7 +15,7 @@
     
     如果源文件第一行以 `#!` 开头，那么它将会被忽略。
     
-    3. **词法分析**
+    3. **词法分析（lexical analysis）**
     
     将源文件分割为标记（Token）序列。[特殊标记](https://dlang.org/spec/lex.html#specialtokens)会被替换为其他的标记；特殊标记序列会被处理后移除。
     
