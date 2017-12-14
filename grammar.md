@@ -8,7 +8,7 @@
 
 ```pegs
 Type:
-    TypeCtorsopt BasicType BasicType2opt
+    TypeCtorkios opt BasicType BasicType2 opt
 
 TypeCtors:
     TypeCtor
@@ -54,7 +54,7 @@ BasicTypeX:
     void
 
 BasicType2:
-    BasicType2X BasicType2opt
+    BasicType2X BasicType2 opt
 
 BasicType2X:
     *
@@ -62,8 +62,8 @@ BasicType2X:
     [ AssignExpression ]
     [ AssignExpression .. AssignExpression ]
     [ Type ]
-    delegate Parameters MemberFunctionAttributesopt
-    function Parameters FunctionAttributesopt
+    delegate Parameters MemberFunctionAttributes opt
+    function Parameters FunctionAttributes opt
 
 IdentifierList:
     Identifier
@@ -244,16 +244,16 @@ ComplementExpression:
 
 ```pegs
 NewExpression:
-    new AllocatorArgumentsopt Type
+    new AllocatorArguments opt Type
     NewExpressionWithArgs
 
 NewExpressionWithArgs:
-    new AllocatorArgumentsopt Type [ AssignExpression ]
-    new AllocatorArgumentsopt Type ( ArgumentListopt )
+    new AllocatorArguments opt Type [ AssignExpression ]
+    new AllocatorArguments opt Type ( ArgumentList opt )
     NewAnonClassExpression
 
 AllocatorArguments:
-    ( ArgumentListopt )
+    ( ArgumentList opt )
 
 ArgumentList:
     AssignExpression
@@ -263,10 +263,10 @@ ArgumentList:
 
 ```pegs
 NewAnonClassExpression:
-    new AllocatorArgumentsopt class ClassArgumentsopt SuperClassopt Interfacesopt AggregateBody
+    new AllocatorArguments opt class ClassArguments opt SuperClass opt Interfaces opt AggregateBody
 
 ClassArguments:
-    ( ArgumentListopt )
+    ( ArgumentList opt )
 ```
 
 ```pegs
@@ -277,7 +277,7 @@ DeleteExpression:
 ```pegs
 CastExpression:
     cast ( Type ) UnaryExpression
-    cast ( TypeCtorsopt ) UnaryExpression
+    cast ( TypeCtors opt ) UnaryExpression
 ```
 
 ```pegs
@@ -294,8 +294,8 @@ PostfixExpression:
     PostfixExpression . NewExpression
     PostfixExpression ++
     PostfixExpression --
-    PostfixExpression ( ArgumentListopt )
-    TypeCtorsopt BasicType ( ArgumentListopt )
+    PostfixExpression ( ArgumentList opt )
+    TypeCtors opt BasicType ( ArgumentList opt )
     IndexExpression
     SliceExpression
 ```
@@ -356,7 +356,7 @@ StringLiterals:
 
 ```pegs
 ArrayLiteral:
-    [ ArgumentListopt ]
+    [ ArgumentList opt ]
 ```
 
 ```pegs
@@ -379,8 +379,8 @@ ValueExpression:
 
 ```pegs
 FunctionLiteral:
-    function Typeopt ParameterAttributes opt FunctionLiteralBody
-    delegate Typeopt ParameterMemberAttributes opt FunctionLiteralBody
+    function Type opt ParameterAttributes opt FunctionLiteralBody
+    delegate Type opt ParameterMemberAttributes opt FunctionLiteralBody
     ParameterMemberAttributes FunctionLiteralBody
     FunctionLiteralBody
     Lambda
@@ -388,18 +388,18 @@ FunctionLiteral:
 
 ```pegs
 ParameterAttributes:
-    Parameters FunctionAttributesopt
+    Parameters FunctionAttributes opt
 
 ParameterMemberAttributes:
-    Parameters MemberFunctionAttributesopt
+    Parameters MemberFunctionAttributes opt
 
 FunctionLiteralBody:
     BlockStatement
-    FunctionContractsopt BodyStatement
+    FunctionContracts opt BodyStatement
 
 Lambda:
-    function Typeopt ParameterAttributes => AssignExpression
-    delegate Typeopt ParameterMemberAttributes => AssignExpression
+    function Type opt ParameterAttributes => AssignExpression
+    delegate Type opt ParameterMemberAttributes => AssignExpression
     ParameterMemberAttributes => AssignExpression
     Identifier => AssignExpression
 ```
@@ -571,4 +571,232 @@ TraitsArguments:
 TraitsArgument:
     AssignExpression
     Type
+```
+
+```pegs
+SpecialKeyword:
+    __FILE__
+    __FILE_FULL_PATH__
+    __MODULE__
+    __LINE__
+    __FUNCTION__
+    __PRETTY_FUNCTION__
+```
+
+## 3.4 语句
+
+```pegs
+Statement:
+    ;
+    NonEmptyStatement
+    ScopeBlockStatement
+
+NoScopeNonEmptyStatement:
+    NonEmptyStatement
+    BlockStatement
+
+NoScopeStatement:
+    ;
+    NonEmptyStatement
+    BlockStatement
+
+NonEmptyOrScopeBlockStatement:
+    NonEmptyStatement
+    ScopeBlockStatement
+
+NonEmptyStatement:
+    NonEmptyStatementNoCaseNoDefault
+    CaseStatement
+    CaseRangeStatement
+    DefaultStatement
+
+NonEmptyStatementNoCaseNoDefault:
+    LabeledStatement
+    ExpressionStatement
+    DeclarationStatement
+    IfStatement
+    WhileStatement
+    DoStatement
+    ForStatement
+    ForeachStatement
+    SwitchStatement
+    FinalSwitchStatement
+    ContinueStatement
+    BreakStatement
+    ReturnStatement
+    GotoStatement
+    WithStatement
+    SynchronizedStatement
+    TryStatement
+    ScopeGuardStatement
+    ThrowStatement
+    AsmStatement
+    PragmaStatement
+    MixinStatement
+    ForeachRangeStatement
+    ConditionalStatement
+    StaticForeachStatement
+    StaticAssert
+    TemplateMixin
+    ImportDeclaration
+```
+
+```pegs
+ScopeStatement:
+    NonEmptyStatement
+    BlockStatement
+```
+
+```pegs
+ScopeBlockStatement:
+    BlockStatement
+```
+
+```pegs
+LabeledStatement:
+    Identifier :
+    Identifier : NoScopeStatement
+    Identifier : Statement
+```
+
+```pegs
+BlockStatement:
+    { }
+    { StatementList }
+
+StatementList:
+    Statement
+    Statement StatementList
+```
+
+```pegs
+ExpressionStatement:
+    Expression ;
+```      
+
+```pegs
+DeclarationStatement:
+    StorageClasses opt Declaration
+```
+
+```pegs
+IfStatement:
+    if ( IfCondition ) ThenStatement
+    if ( IfCondition ) ThenStatement else ElseStatement
+
+IfCondition:
+    Expression
+    auto Identifier = Expression
+    TypeCtors Identifier = Expression
+    TypeCtorsopt BasicType Declarator = Expression
+
+ThenStatement:
+    ScopeStatement
+
+ElseStatement:
+    ScopeStatement
+```
+
+```pegs
+WhileStatement:
+    while ( Expression ) ScopeStatement
+```
+
+```pegs
+DoStatement:
+    do ScopeStatement  while ( Expression ) ;
+```    
+
+```pegs
+ForStatement:
+    for ( Initialize Testopt ; Incrementopt ) ScopeStatement
+
+Initialize:
+    ;
+    NoScopeNonEmptyStatement
+
+Test:
+    Expression
+
+Increment:
+    Expression
+```
+
+```pegs
+AggregateForeach:
+    Foreach ( ForeachTypeList ; ForeachAggregate )
+
+ForeachStatement:
+    AggregateForeach NoScopeNonEmptyStatement
+
+Foreach:
+    foreach
+    foreach_reverse
+
+ForeachTypeList:
+    ForeachType
+    ForeachType , ForeachTypeList
+
+ForeachType:
+    ForeachTypeAttributesopt BasicType Declarator
+    ForeachTypeAttributesopt Identifier
+    ForeachTypeAttributesopt alias Identifier
+
+ForeachTypeAttributes
+    ForeachTypeAttribute
+    ForeachTypeAttribute ForeachTypeAttributesopt
+
+ForeachTypeAttribute:
+    ref
+    TypeCtor
+    enum
+
+ForeachAggregate:
+    Expression
+```
+
+```pegs
+RangeForeach:
+    Foreach ( ForeachType ; LwrExpression .. UprExpression )
+
+LwrExpression:
+    Expression
+
+UprExpression:
+    Expression
+
+ForeachRangeStatement:
+    RangeForeach ScopeStatement
+```
+
+```pegs
+SwitchStatement:
+    switch ( Expression ) ScopeStatement
+
+CaseStatement:
+    case ArgumentList : ScopeStatementList
+
+CaseRangeStatement:
+    case FirstExp : .. case LastExp : ScopeStatementList
+
+FirstExp:
+    AssignExpression
+
+LastExp:
+    AssignExpression
+
+DefaultStatement:
+    default : ScopeStatementList
+
+ScopeStatementList:
+    StatementListNoCaseNoDefault
+
+StatementListNoCaseNoDefault:
+    StatementNoCaseNoDefault
+    StatementNoCaseNoDefault StatementListNoCaseNoDefault
+
+StatementNoCaseNoDefault:
+    ;
+    NonEmptyStatementNoCaseNoDefault
+    ScopeBlockStatement
 ```
