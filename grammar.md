@@ -353,3 +353,222 @@ StringLiterals:
     StringLiteral
     StringLiterals StringLiteral
 ```
+
+```pegs
+ArrayLiteral:
+    [ ArgumentListopt ]
+```
+
+```pegs
+AssocArrayLiteral:
+    [ KeyValuePairs ]
+
+KeyValuePairs:
+    KeyValuePair
+    KeyValuePair , KeyValuePairs
+
+KeyValuePair:
+    KeyExpression : ValueExpression
+
+KeyExpression:
+    AssignExpression
+
+ValueExpression:
+    AssignExpression
+```
+
+```pegs
+FunctionLiteral:
+    function Typeopt ParameterAttributes opt FunctionLiteralBody
+    delegate Typeopt ParameterMemberAttributes opt FunctionLiteralBody
+    ParameterMemberAttributes FunctionLiteralBody
+    FunctionLiteralBody
+    Lambda
+```
+
+```pegs
+ParameterAttributes:
+    Parameters FunctionAttributesopt
+
+ParameterMemberAttributes:
+    Parameters MemberFunctionAttributesopt
+
+FunctionLiteralBody:
+    BlockStatement
+    FunctionContractsopt BodyStatement
+
+Lambda:
+    function Typeopt ParameterAttributes => AssignExpression
+    delegate Typeopt ParameterMemberAttributes => AssignExpression
+    ParameterMemberAttributes => AssignExpression
+    Identifier => AssignExpression
+```
+
+```pegs
+AssertExpression:
+    assert ( AssignExpression ,opt )
+    assert ( AssignExpression , AssignExpression ,opt )
+```
+
+```pegs
+MixinExpression:
+    mixin ( AssignExpression )
+```
+
+```pegs
+ImportExpression:
+    import ( AssignExpression )
+```
+
+```pegs
+TypeidExpression:
+    typeid ( Type )
+    typeid ( Expression )
+```
+
+```pegs
+IsExpression:
+    is ( Type )
+    is ( Type : TypeSpecialization )
+    is ( Type == TypeSpecialization )
+    is ( Type : TypeSpecialization , TemplateParameterList )
+    is ( Type == TypeSpecialization , TemplateParameterList )
+    is ( Type Identifier )
+    is ( Type Identifier : TypeSpecialization )
+    is ( Type Identifier == TypeSpecialization )
+    is ( Type Identifier : TypeSpecialization , TemplateParameterList )
+    is ( Type Identifier == TypeSpecialization , TemplateParameterList )
+
+TypeSpecialization:
+    Type
+    struct
+    union
+    class
+    interface
+    enum
+    function
+    delegate
+    super
+    const
+    immutable
+    inout
+    shared
+    return
+    __parameters
+```
+
+```pegs
+TraitsExpression:
+    __traits ( TraitsKeyword , TraitsArguments )
+
+TraitsKeyword:
+    isAbstractClass
+    isArithmetic
+    isAssociativeArray
+    isFinalClass
+    isPOD
+    isNested
+    isFloating
+    isIntegral
+    isScalar
+    isStaticArray
+    isUnsigned
+    isVirtualFunction
+    isVirtualMethod
+    isAbstractFunction
+    isFinalFunction
+    isStaticFunction
+    isOverrideFunction
+    isTemplate
+    isRef
+    isOut
+    isLazy
+    hasMember
+    identifier
+    getAliasThis
+    getAttributes
+    getFunctionAttributes
+    getFunctionVariadicStyle
+    getLinkage
+    getMember
+    getOverloads
+    getParameterStorageClasses
+    getPointerBitmap
+    getProtection
+    getVirtualFunctions
+    getVirtualMethods
+    getUnitTests
+    parent
+    classInstanceSize
+    getVirtualIndex
+    allMembers
+    derivedMembers
+    isSame
+    compiles
+
+TraitsArguments:
+    TraitsArgument
+    TraitsArgument , TraitsArguments
+
+TraitsArgument:
+    AssignExpression
+    Type
+```
+
+```pegs
+TraitsExpression:
+    __traits ( TraitsKeyword , TraitsArguments )
+
+TraitsKeyword:
+    isAbstractClass
+    isArithmetic
+    isAssociativeArray
+    isFinalClass
+    isPOD
+    isNested
+    isFloating
+    isIntegral
+    isScalar
+    isStaticArray
+    isUnsigned
+    isVirtualFunction
+    isVirtualMethod
+    isAbstractFunction
+    isFinalFunction
+    isStaticFunction
+    isOverrideFunction
+    isTemplate
+    isRef
+    isOut
+    isLazy
+    hasMember
+    identifier
+    getAliasThis
+    getAttributes
+    getFunctionAttributes
+    getFunctionVariadicStyle
+    getLinkage
+    getMember
+    getOverloads
+    getParameterStorageClasses
+    getPointerBitmap
+    getProtection
+    getVirtualFunctions
+    getVirtualMethods
+    getUnitTests
+    parent
+    classInstanceSize
+    getVirtualIndex
+    allMembers
+    derivedMembers
+    isSame
+    compiles
+
+TraitsArguments:
+    TraitsArgument
+    TraitsArgument , TraitsArguments
+
+TraitsArgument:
+    AssignExpression
+    Type
+```
